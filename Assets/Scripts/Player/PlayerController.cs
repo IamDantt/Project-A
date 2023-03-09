@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField]private bool _isDashing;
     [SerializeField]private bool _CanDash = true;
-    
+
 
     private void Awake()
     {
@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
         {
             movePlayer();
             Jump();
-        }
-        Atack();
+        }       
     }
 
     void movePlayer()
@@ -113,9 +112,5 @@ public class PlayerController : MonoBehaviour
             Myrigidbody.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
         }
     }
-
-    void Atack()
-    {
-        //Aqui poner codigo de ataque
-    }
+        
 }
