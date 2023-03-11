@@ -40583,7 +40583,7 @@ MonoBehaviour:
     m_Bits: 64
   _dashingTime: 0.15
   _timeCanDash: 0.5
-  _dahsForce: 20
+  _dahsForce: 25
   _isDashing: 0
   _CanDash: 1
 --- !u!95 &2122829868
