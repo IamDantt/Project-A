@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerHealt : MonoBehaviour
 {
 
-    [SerializeField] private float playerHealt = 100f;
+    public float maxHealth = 100f;
+    public float currentHealt;
+
+    public HealtBar healtBar;
 
     private Animator animator;
 
@@ -13,7 +16,10 @@ public class PlayerHealt : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        currentHealt = maxHealth;
+        healtBar.SetMaxHealth(maxHealth);
     }
+
 
     // Update is called once per frame
     void Update()
@@ -26,8 +32,9 @@ public class PlayerHealt : MonoBehaviour
 
     public void recibeDamage(float damage)
     {
-        playerHealt -= damage;
-        if (playerHealt <= 0)
+        currentHealt -= damage;
+        healtBar.SetHealt(currentHealt);
+        if (currentHealt <= 0)
         {
             animator.SetTrigger("Dead");
         }

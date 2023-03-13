@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float life;
+    public float MaxEnemyHealth = 100f;
+    public float currentEnemyHealth;
+
+    public HealtBar healtBar;
+
     private Animator animator;
 
     public Transform player;
@@ -14,12 +18,15 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        currentEnemyHealth = MaxEnemyHealth;
+        healtBar.SetMaxHealth(MaxEnemyHealth);
     }
 
     public void recibeDamage(float damage)
     {
-        life -= damage;
-        if (life <= 0)
+        currentEnemyHealth -= damage;
+        healtBar.SetHealt(currentEnemyHealth);
+        if (currentEnemyHealth <= 0)
         {
             Dead();
         }
